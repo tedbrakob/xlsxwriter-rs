@@ -132,6 +132,8 @@ pub enum TopOrBottomCriteria {
 pub enum ConditionalFormatRuleTypes {
     /// Conditional format rule type: matches the minimum values in the range. Can only be applied to min_rule_type.
     Minimum,
+    /// Conditional format rule type: matches either 0 or the minimum value in the range, whichever is greater. Can only be applied to min_rule_type.
+    AutoMinimum,
     /// Conditional format rule type: use a number to set the bound.
     Number,
     /// Conditional format rule type: use a percentage to set the bound.
@@ -148,6 +150,7 @@ impl ConditionalFormatRuleTypes {
     pub(crate) fn into_internal_value(self) -> u8 {
         let val = match self {
             ConditionalFormatRuleTypes::Minimum => libxlsxwriter_sys::lxw_conditional_format_rule_types_LXW_CONDITIONAL_RULE_TYPE_MINIMUM,
+            ConditionalFormatRuleTypes::AutoMinimum => libxlsxwriter_sys::lxw_conditional_format_rule_types_LXW_CONDITIONAL_RULE_TYPE_AUTO_MIN,
             ConditionalFormatRuleTypes::Number => libxlsxwriter_sys::lxw_conditional_format_rule_types_LXW_CONDITIONAL_RULE_TYPE_NUMBER,
             ConditionalFormatRuleTypes::Percent => libxlsxwriter_sys::lxw_conditional_format_rule_types_LXW_CONDITIONAL_RULE_TYPE_PERCENT,
             ConditionalFormatRuleTypes::Percentile => libxlsxwriter_sys::lxw_conditional_format_rule_types_LXW_CONDITIONAL_RULE_TYPE_PERCENTILE,
