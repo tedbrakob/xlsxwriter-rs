@@ -132,7 +132,7 @@ pub enum TopOrBottomCriteria {
 pub enum ConditionalFormatRuleTypes {
     /// Conditional format rule type: matches the minimum values in the range. Can only be applied to min_rule_type.
     Minimum,
-    /// Conditional format rule type: matches either 0 or the minimum value in the range, whichever is greater. Can only be applied to min_rule_type.
+    /// Conditional format rule type: matches either 0 or the minimum value in the range, whichever is least. Can only be applied to min_rule_type.
     AutoMinimum,
     /// Conditional format rule type: use a number to set the bound.
     Number,
