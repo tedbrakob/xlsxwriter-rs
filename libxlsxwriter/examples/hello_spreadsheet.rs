@@ -1,42 +1,30 @@
-use xlsxwriter::{format::*, Workbook};
+use xlsxwriter::{
+    worksheet::conditional_format::{ConditionalDataBar, ConditionalFormat},
+    Workbook,
+};
 
 fn main() -> Result<(), xlsxwriter::XlsxError> {
-    let workbook = Workbook::new("target/simple1.xlsx")?;
+    let workbook = Workbook::new("target/databars.xlsx")?;
 
     let mut sheet1 = workbook.add_worksheet(None)?;
-    sheet1.write_string(
+
+    sheet1.write_number(0, 0, 20., None)?;
+    sheet1.write_number(1, 0, 21., None)?;
+    sheet1.write_number(2, 0, 22., None)?;
+    sheet1.write_number(3, 0, 23., None)?;
+    sheet1.write_number(4, 0, 24., None)?;
+    sheet1.write_number(5, 0, 25., None)?;
+    sheet1.write_number(6, 0, 26., None)?;
+    sheet1.write_number(7, 0, 27., None)?;
+    sheet1.write_number(8, 0, 28., None)?;
+
+    sheet1.conditional_format_range(
         0,
         0,
-        "Red text",
-        Some(Format::new().set_font_color(FormatColor::Red)),
-    )?;
-    sheet1.write_number(0, 1, 20., None)?;
-    sheet1.write_formula_num(1, 0, "=10+B1", None, 30.)?;
-    sheet1.write_url(
-        1,
-        1,
-        "https://github.com/informationsea/xlsxwriter-rs",
-        Some(
-            Format::new()
-                .set_font_color(FormatColor::Blue)
-                .set_underline(FormatUnderline::Single),
-        ),
-    )?;
-    sheet1.merge_range(
-        2,
+        8,
         0,
-        3,
-        2,
-        "Hello, world",
-        Some(
-            Format::new()
-                .set_font_color(FormatColor::Green)
-                .set_align(FormatAlignment::CenterAcross)
-                .set_vertical_align(FormatVerticalAlignment::VerticalCenter),
-        ),
+        &ConditionalFormat::DataBar(ConditionalDataBar::new()),
     )?;
 
-    sheet1.set_selection(1, 0, 1, 2);
-    sheet1.set_tab_color(FormatColor::Cyan);
     workbook.close()
 }
