@@ -484,6 +484,126 @@ impl Format {
         self.right_color = Some(color);
         self
     }
+    
+    pub fn get_font_name(&self) -> Option<String> {
+        self.font_name.clone()
+    }
+    
+    pub fn get_font_size(&self) -> Option<u32> {
+        self.font_size
+    }
+    
+    pub fn get_font_color(&self) -> Option<FormatColor> {
+        self.font_color
+    }
+    
+    pub fn get_bold(&self) -> bool {
+        self.bold
+    }
+    
+    pub fn get_italic(&self) -> bool {
+        self.italic
+    }
+    
+    pub fn get_underline(&self) -> Option<FormatUnderline> {
+        self.underline
+    }
+    
+    pub fn get_font_strikeout(&self) -> bool {
+        self.font_strikeout
+    }
+    
+    pub fn get_font_script(&self) -> Option<FormatScript> {
+        self.font_script
+    }
+    
+    pub fn get_num_format(&self) -> Option<String> {
+        self.num_format.clone()
+    }
+    
+    pub fn get_unlocked(&self) -> bool {
+        self.unlocked
+    }
+    
+    pub fn get_hidden(&self) -> bool {
+        self.hidden
+    }
+    
+    pub fn get_align(&self) -> Option<FormatAlignment> {
+        self.align
+    }
+    
+    pub fn get_vertical_align(&self) -> Option<FormatVerticalAlignment> {
+        self.vertical_align
+    }
+    
+    pub fn get_text_wrap(&self) -> bool {
+        self.text_wrap
+    }
+    
+    pub fn get_rotation(&self) -> Option<i16> {
+        self.rotation
+    }
+    
+    pub fn get_indent(&self) -> Option<u8> {
+        self.indent
+    }
+    
+    pub fn get_shrink(&self) -> bool {
+        self.shrink
+    }
+    
+    pub fn get_pattern(&self) -> Option<FormatPatterns> {
+        self.pattern
+    }
+    
+    pub fn get_bg_color(&self) -> Option<FormatColor> {
+        self.bg_color
+    }
+    
+    pub fn get_fg_color(&self) -> Option<FormatColor> {
+        self.fg_color
+    }
+    
+    pub fn get_border(&self) -> Option<FormatBorder> {
+        self.border
+    }
+    
+    pub fn get_border_bottom(&self) -> Option<FormatBorder> {
+        self.bottom
+    }
+    
+    pub fn get_border_top(&self) -> Option<FormatBorder> {
+        self.top
+    }
+    
+    pub fn get_border_left(&self) -> Option<FormatBorder> {
+        self.left
+    }
+    
+    pub fn get_border_right(&self) -> Option<FormatBorder> {
+        self.right
+    }
+    
+    pub fn get_border_color(&self) -> Option<FormatColor> {
+        self.border_color
+    }
+    
+    pub fn get_border_bottom_color(&self) -> Option<FormatColor> {
+        self.bottom_color
+    }
+    
+    pub fn get_border_top_color(&self) -> Option<FormatColor> {
+        self.top_color
+    }
+    
+    pub fn get_border_left_color(&self) -> Option<FormatColor> {
+        self.left_color
+    }
+    
+    pub fn get_border_right_color(&self) -> Option<FormatColor> {
+        self.right_color
+    }
 
     pub(crate) fn set_internal_format(
         &self,
